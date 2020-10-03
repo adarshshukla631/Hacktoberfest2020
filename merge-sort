@@ -1,0 +1,62 @@
+
+#include<stdio.h>
+
+  void merge(int a[],int l,int m,int u)
+  {
+      int i=l,j=m+1,k=l;
+      int arr[u+1];
+      while(i<=m&&j<=u)
+      {
+          if(a[i]<=a[j])
+          {
+              arr[k]=a[i];
+              i++;k++;
+          }
+          else
+          {
+              arr[k]=a[j];
+              k++;j++;
+          }
+      }
+      while(i<=m)
+      {
+          arr[k]=a[i];
+          i++;k++;
+      }
+      while(j<=u)
+      {
+         arr[k]=a[j];
+         k++;j++;
+      }
+      for(i=l;i<=u;i++)
+      {
+          a[i]=arr[i];
+      }
+  }
+  void mergesort(int a[],int l,int u)
+  {
+    int mid;
+    if(l<u)
+    {
+        mid=(l+u)/2;
+        mergesort(a,l,mid);
+        mergesort(a,mid+1,u);
+        merge(a,l,mid,u);
+    }
+  }
+  int main()
+
+  {
+    int n,a[100],i,j;
+      printf("enter number of element::");
+       scanf("%d",&n);
+      printf("enter %d elmennt::",n);
+      for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+
+      printf("number in sorted order::");
+       mergesort(a,0,n-1);
+     for(i=0;i<n;i++)
+        printf("%d ",a[i]);
+    return 0;
+  }
