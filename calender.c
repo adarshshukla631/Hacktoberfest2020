@@ -2,12 +2,6 @@
 #include<conio.h>
 #include<windows.h>
 
-/**********************************************
-    Project: Calender Application
-    Language : C
-    @Author : Bibek Subedi, Tribhuvan University
-    Project Type : Mini
-***********************************************/
 struct Date{
     int dd;
     int mm;
